@@ -1,0 +1,49 @@
+version: '3'
+# Define the services used for the application
+services:
+    # SleepsimR API
+    api:
+        # Get API
+        image: jhginn/sleepsimr-api:latest
+        # Attach the volume containing the build
+        volumes:
+            - "sleepsimr:/var/sleepsimR"
+        # Frontend network link
+        networks:
+            - frontend_network
+        # Pass version as env variable
+        environment:
+            - SLEEPSIMR_USER=myuser
+            - SLEEPSIMR_PWD=mypassword
+        # Expose these ports
+        expose:
+            - "5002"
+        restart: always
+    # Reverse proxy
+    nginx:
+        build: ./serve/
+        # tag
+        image: jhginn/sleepsimr-serve:latest
+        ports:
+            - "80:80"
+        volumes:
+            - ./nginx.conf:/etc/nginx/nginx.conf:ro
+        # Only depends on the frontend network
+        networks:
+            - frontend_network
+        # Needs api ==>
+            # api is an upstream service for nginx.conf
+        depends_on:
+            - api
+        restart: always
+
+# Define the networks used for this cluster
+networks:
+    frontend_network:
+      driver: bridge
+
+# External: true means that the volumes have been made outside of this docker-compose environment.
+#  i.e. they have already been configured in the boostrap script
+volumes:
+    sleepsimr:
+        external: true

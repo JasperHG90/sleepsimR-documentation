@@ -1,0 +1,25 @@
+version: '3'
+# Define the services used for the application
+services:
+    # SleepsimR container 
+    # One iteration, one vote!
+    iteration:
+        # The container image
+        image: jhginn/sleepsimr-run:version-1.5.1
+        # Attach the volume containing the build
+        volumes:
+            - "sleepsimrmodels:/var/sleepsimR"
+        # Pass version as env variable
+        environment:
+            - SLEEPSIMR_API_USERNAME=myuser
+            - SLEEPSIMR_API_PASSWORD=mypassword
+            - SLEEPSIMR_MASTER_HOST=http://172.19.0.1/6532a6c0213d9ac79f2101838e40e041
+        # This is important. We restart the containers (ALWAYS)
+        # After each iteration, a new iteration will start!
+        restart: always
+
+# External: true means that the volumes have been made outside of this docker-compose environment.
+#  i.e. they have already been configured in the boostrap script
+volumes:
+    sleepsimrmodels:
+        external: false
