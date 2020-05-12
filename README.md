@@ -7,8 +7,6 @@ This repository contains the research archive accompanying my Master's thesis.
 <table>
 <thead>
   <tr>
-    <th>Field</th>
-    <th>Value<br></th>
   </tr>
 </thead>
 <tbody>
