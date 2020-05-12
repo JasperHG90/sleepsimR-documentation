@@ -17,29 +17,35 @@ Manuscript submitted, date: May 2020
 
 In the instructions given below, I assume that you have access to a bash-like terminal.
 
-## 1. Ethical approval
+## Data management
 
-## 2. Summary of research paper
+### 1. Ethical approval
 
-## 3. Project pipeline
+### 2. Summary of research paper
 
-## 4. Software requirements and installation
+### 3. Project pipeline
+
+### 4. Software requirements and installation
 
 Docker / docker-compose
 Singularity
 
 
-## 5. Replicating the analysis
+### 5. Replicating the analysis
 
-### 5.1 Data collection & preprocessing
+#### 5.1 Data collection & preprocessing
 
-### 5.2 Simulation design & execution
+#### 5.2 Simulation design & execution
 
-### 5.3 Analysis & empirical application
+#### 5.3 Analysis & empirical application
 
-## 6. (Final) datasets
+### 6. (Final) datasets
 
-## 7. Analyses and plots
+### 7. Analyses and plots
+
+## Privacy
+
+## Permission and access
 
 # Docker container --> running iterations
 
