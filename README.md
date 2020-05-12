@@ -4,33 +4,37 @@ This repository contains the research archive accompanying my Master's thesis.
 
 ## Thesis details
 
-<table class="tg">
+<table>
 <thead>
   <tr>
-    <th class="tg-0pky">Title</th>
-    <th class="tg-dvpl">Sample Size Considerations for Bayesian Multilevel Hidden Markov<br>Models: A Simulation Study and Application to Electroencephalogram<br>(EEG) and Electrooculography (EOG) Data to Detect Sleep States</th>
+    <th>Field</th>
+    <th>Value<br></th>
   </tr>
 </thead>
 <tbody>
   <tr>
-    <td class="tg-0pky">Author</td>
-    <td class="tg-dvpl">Jasper Ginn</td>
+    <td>Title</td>
+    <td>Sample Size Considerations for Bayesian Multilevel Hidden Markov<br>Models: A Simulation Study and Application to Electroencephalogram<br>(EEG) and Electrooculography (EOG) Data to Detect Sleep States</td>
   </tr>
   <tr>
-    <td class="tg-0pky">Supervisor</td>
-    <td class="tg-dvpl">Dr. Emmeke Aarts</td>
+    <td>Author</td>
+    <td>Jasper Ginn</td>
   </tr>
   <tr>
-    <td class="tg-0pky">Department</td>
-    <td class="tg-dvpl">Department of Methodology &amp; Statistics, Utrecht University</td>
+    <td>Supervisor</td>
+    <td>Dr. Emmeke Aarts</td>
   </tr>
   <tr>
-    <td class="tg-0pky">Data collection (period)<br></td>
-    <td class="tg-dvpl">November 2019</td>
+    <td>Department</td>
+    <td>Department of Methodology &amp; Statistics, Utrecht University</td>
   </tr>
   <tr>
-    <td class="tg-0pky">Manuscript submitted (period)</td>
-    <td class="tg-dvpl">May 2020</td>
+    <td>Data collection (period)<br></td>
+    <td>November 2019</td>
+  </tr>
+  <tr>
+    <td>Manuscript submitted (period)</td>
+    <td>May 2020</td>
   </tr>
 </tbody>
 </table>
