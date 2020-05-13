@@ -4,3 +4,5 @@ thesis-docs.code-workspace
 run-simulations-surf-lisa/app
 manuscript
 .Rproj.user
+.RData
+.Rhistory
