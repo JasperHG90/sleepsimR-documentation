@@ -49,7 +49,19 @@ In the instructions given below, I assume that you have access to a bash-like te
 
 ### 1. Ethical approval
 
-I affirm to have followed professional ethical guidelines in preparing this work. The procedures in this research project were reviewed and granted approval by the Ethics Review Board of the Faculty of Social and Behavioural Sciences at Utrecht University under reference number (#19-196). A PDF of the original application may be found in the "docs" folder.
+I affirm to have followed professional ethical guidelines in preparing this work. The procedures in this research project were reviewed and granted approval by the Ethics Review Board of the Faculty of Social and Behavioural Sciences at Utrecht University under reference number #19-196. A PDF of the original application may be found in the "documentation" folder.
+
+### 2. Software requirements and installation
+
+The prerequisite software required to re-run this analysis is given below. I provide specific version numbers, and cannot guarantee that this software will work with earlier or later versions.
+
+- [Docker](https://www.docker.com/) (version 19.03.8, build afacb8b7f0)
+- [Docker-compose](https://docs.docker.com/compose/) (version 1.21.2)
+- [Singularity](https://sylabs.io/docs/) (version 2.6)
+- [R](https://www.r-project.org/about.html) (version 3.6.3 (2020-02-29) -- "Holding the Windsock")
+- [R-studio](https://rstudio.com/) (version 1.2.5019 "Elderflower" (fba733f0, 2019-10-24)) 
+
+All R libraries that are required for the project are included in the R libraries that I developed in the course of this thesis and will be automatically installed when you install these libraries.
 
 ### 3. Project pipeline
 
@@ -81,12 +93,6 @@ The table below lists all the software that I used in the production of my thesi
 |                              	|                                                            	| 10.5281/zenodo.3778191 	| 1.5.1   	| This version is used with version 1.5.1 (Scenario 1)  of the sleepsimR-api program. In this version, the emission distribution means are spread out.                                                                                                     	|
 |                              	|                                                            	| 10.5281/zenodo.3778195 	| 1.5.2   	| This version is used with versions 1.5.1 (Scenario 2), 1.5.3 and 1.5.4 of the sleepsimR-api program. In this version, the emission distribution means are spread out and the self-transition probabilities are lowered.                                  	|
 | sleepsimR-sleepdata-analysis 	| https://github.com/JasperHG90/sleepsimR-sleepdata-analysis 	| XXX.XXX.XXX            	| 1.0     	| Docker application. This program allows the user to run a single chain of the model used in the empirical analysis.                                                                                                                                      	|
-
-### 4. Software requirements and installation
-
-Docker / docker-compose
-Singularity
-
 
 ### 5. Replicating the analysis
 
