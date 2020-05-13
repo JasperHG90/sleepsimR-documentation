@@ -259,7 +259,7 @@ Enter this folder and open the "docker-compose.yml" file using the following com
 nano docker-compose.yml
 ```
 
-Change that line that is enclosed in the red box in the image below to the version that you are using. For example, I change the line to `jhginn/sleepsimr-api:version-1.3.1`.
+Change that line that is enclosed in the red box in the image below to the version that you are using. For example, I change the line to `jhginn/sleepsimr-api:version-1.3.1`. Hit \\<ctrl \\> + X and then \\<ENTER\\> to save your changes
 
 <figure>
   <img src="img/api-dc.png" alt="Pipeline" style="width:80%">
