@@ -206,6 +206,8 @@ data("scen")
 ?sleepsimRdata::scen_baseline
 ```
 
+The scenarios generated as outlined above contain all necessary information to generate data using the mHMMbayes R library and to run the analysis. Data and model seeds are set at the iteration level, making each simulation iteration exactly replicable. Starting values are defined in advance. I check that the starting values are unique.
+
 Running the Bayesian mHMM is computationally burdensome. In order to run all simulation iterations within a reasonable timeframe, I designed a framework that allows for (in theory) infinite scaling of the number of simulation processes that can run in parallel. This architecture is explained in detail in the [simulation protocol](https://github.com/JasperHG90/sleepsimR-documentation/blob/master/documentation/simulation_protocol_v0.3.pdf) which you may find in the "documentation" folder. 
 
 The design can be summarized as follows:
@@ -213,7 +215,55 @@ The design can be summarized as follows:
 1. The "sleepsimR-run" program is a docker container that runs a single iteration of the simulation study. Hence, if we have at our disposal a device with 8 CPUs, we can run 8 simulation iterations in parallel.
 1. The "sleepsimR-api" program acts as an "accountant". Each time a simulation iteration is started from the "sleepsimR-run" program, it will query a set of simulation parameters (e.g. random seeds, starting values etc.) from the API. When the simulation iteration finishes, the results are then sent back to the API. The API stores these results on disk.
 
+##### 4.2.1 Running the simulations
 
+To run the simulations, I use the [LISA](https://userinfo.surfsara.nl/systems/lisa) high-performance computing (HPC) environment provided by SURF. The table in section 3 lists all of the versions of the API that I use to obtain my results. The process of setting up these scenarios is identical for each version, and hence I only show the required steps for a single version.
+
+First, you need to set up a virtual machine on Google Cloud (or a cloud service provider of your choice). This virtual machine can be quite small; 2 vCPUs and 4GB of RAM should suffice. Make sure to use Ubuntu 18.04 as your operating system and assign an SSD hard drive of at least 30GB. Next, ensure that the virtual machine is publically reachable on port 80. This allows the API to communicate with each of the simulation iteration containers. 
+
+Boot into the virtual machine and follow the instructions given [here](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-18-04) to install docker and the instructions given [here](https://www.digitalocean.com/community/tutorials/how-to-install-docker-compose-on-ubuntu-18-04) to install docker compose. 
+
+Next, download a version of the API from one of the Zenodo repositories and unzip it:
+
+```shell
+wget https://zenodo.org/record/3727773/files/JasperHG90/sleepsimR-api-v1.3.1.zip?download=1 -O sleepsimR-api-v1.3.1.zip && unzip sleepsimR-api-v1.3.1.zip
+```
+
+Build the docker application as follows (NB: change this if you use a different version):
+
+```shell
+cd JasperHG90-sleepsimR-api-878f033 && docker build . -t jhginn/sleepsimr-api:version-1.3.1 && cd
+```
+
+Create the following docker volumes:
+
+```shell
+docker volume create sleepsimr && docker volume create sleepsimrmodels
+```
+
+Next, download this research archive on the virtual machine:
+
+```shell
+git clone https://github.com/JasperHG90/sleepsimR-documentation.git
+```
+
+Copy the following folder to your home directory
+
+```shell
+cp -R ~/thesis-docs/pipeline/simulation_design_and_execution/API-google-cloud ~/docker-api
+```
+
+Enter this folder and open the "docker-compose.yml" file using the following command:
+
+```shell
+nano docker-compose.yml
+```
+
+Change that line that is enclosed in the red box in the image below to the version that you are using. For example, I change the line to `jhginn/sleepsimr-api:version-1.3.1`.
+
+<figure>
+  <img src="img/api-dc.png" alt="Pipeline" style="width:80%">
+</figure> 
 
 #### 4.3 Analysis & empirical application
 
