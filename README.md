@@ -178,6 +178,15 @@ docker stop helper && docker rm helper
 
 The final preprocessing steps for the `EEG_data_final.rds` data file are conducted in the [sleepsimRdata R library](https://github.com/JasperHG90/sleepsimRdata/blob/master/data-raw/1_preprocess_sleep_data/preprocess_sleep_data.R). The final file is included in the sleepsimRdata R library and can be loaded as follows:
 
+```R
+# Load the library
+library(sleepsimRdata)
+# Load the final EEG dataset
+data("sleepdata")
+# View documentation about the dataset
+?sleepsimRdata::sleepdata
+```
+
 #### 4.2 Simulation design & execution
 
 #### 4.3 Analysis & empirical application
