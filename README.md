@@ -59,7 +59,9 @@ The prerequisite software required to re-run this analysis is given below. I pro
 - [Docker-compose](https://docs.docker.com/compose/) (version 1.21.2)
 - [Singularity](https://sylabs.io/docs/) (version 2.6)
 - [R](https://www.r-project.org/about.html) (version 3.6.3 (2020-02-29) -- "Holding the Windsock")
-- [R-studio](https://rstudio.com/) (version 1.2.5019 "Elderflower" (fba733f0, 2019-10-24)) 
+- [R-studio](https://rstudio.com/) (version 1.2.5019 "Elderflower" (fba733f0, 2019-10-24))
+
+You need to install the R library "devtools". Please follow the instructions given [here](https://www.r-project.org/nosvn/pandoc/devtools.html).
 
 All R libraries that are required for the project are included in the R libraries that I developed in the course of this thesis and will be automatically installed when you install these libraries.
 
