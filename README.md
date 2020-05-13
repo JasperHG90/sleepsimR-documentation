@@ -215,7 +215,7 @@ The design can be summarized as follows:
 1. The "sleepsimR-run" program is a docker container that runs a single iteration of the simulation study. Hence, if we have at our disposal a device with 8 CPUs, we can run 8 simulation iterations in parallel.
 1. The "sleepsimR-api" program acts as an "accountant". Each time a simulation iteration is started from the "sleepsimR-run" program, it will query a set of simulation parameters (e.g. random seeds, starting values etc.) from the API. When the simulation iteration finishes, the results are then sent back to the API. The API stores these results on disk.
 
-##### 4.2.1 Running the simulations
+##### 4.2.1 Setting up the simulation API
 
 To run the simulations, I use the [LISA](https://userinfo.surfsara.nl/systems/lisa) high-performance computing (HPC) environment provided by SURF. The table in section 3 lists all of the versions of the API that I use to obtain my results. The process of setting up these scenarios is identical for each version, and hence I only show the required steps for a single version.
 
@@ -259,11 +259,23 @@ Enter this folder and open the "docker-compose.yml" file using the following com
 nano docker-compose.yml
 ```
 
-Change that line that is enclosed in the red box in the image below to the version that you are using. For example, I change the line to `jhginn/sleepsimr-api:version-1.3.1`. Hit \<ctrl \> + X and then \<ENTER\> to save your changes.
+Change that line that is enclosed in the red box in the image below to the version that you are using. For example, I change the line to `jhginn/sleepsimr-api:version-1.3.1`. Hit \<ctrl\> + X and then \<ENTER\> to save your changes.
 
 <figure>
   <img src="img/api-dc.png" alt="Pipeline" style="width:80%">
 </figure> 
+
+Now, execute the following command to start the API:
+
+```shell
+docker-compose up -d 
+```
+
+The API is now up and running on http://\<YOUR-VM-IP-ADDRESS\>/6532a6c0213d9ac79f2101838e40e041
+
+##### 4.2.2 Running the simulation iterations on the LISA HPC
+
+##### 4.2.1 Running the simulation iterations on a VM
 
 #### 4.3 Analysis & empirical application
 
