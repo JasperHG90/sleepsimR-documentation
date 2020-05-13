@@ -45,11 +45,7 @@ Based on previous studies in the multilevel modeling literature generally and fo
 
 In the instructions given below, I assume that you have access to a bash-like terminal. I also note that you cannot use Docker on [Windows 10 Home](https://docs.docker.com/docker-for-windows/install/), although there is [a workaround](https://medium.com/@mbyfieldcameron/docker-on-windows-10-home-edition-c186c538dff3) that you can use.
 
-## Data management
-
-### 1. Ethical approval
-
-I affirm to have followed professional ethical guidelines in preparing this work. The procedures in this research project were reviewed and granted approval by the Ethics Review Board of the Faculty of Social and Behavioural Sciences at Utrecht University under reference number #19-196. A PDF of the original application may be found in the "documentation" folder.
+## A. Data storage
 
 ### 2. Software requirements and installation
 
@@ -179,23 +175,41 @@ Instructions on preparing the jobscript used to execute the simulations can be f
 
 Please refer to the official [LISA documentation](https://userinfo.surfsara.nl/systems/lisa/user-guide/creating-and-running-jobs) on how to execute jobs using slurm.
 
+##### 4.2.3 Post-processing the simulation results
+
+Once the simulations are finished, you can copy the result files on the server that hosts the API by using the following command:
+
+```shell
+docker cp docker-api_api_1:/var/sleepsimR sleepsimr-results
+```
+
+You can then copy these results to your own device.
+
+The results obtained in my study have been included in the "sleepsimRdata" R library. You can find the ...
+
 #### 4.3 Analysis & empirical application
 
-### 6. (Final) datasets
+##### 4.3.1 Analyses and Figures
 
-### 7. Analyses and plots
+##### 4.3.2 Empirical application
 
-## Privacy
+## B. Privacy
+
+I affirm to have followed professional ethical guidelines in preparing this work. The procedures in this research project were reviewed and granted approval by the Ethics Review Board of the Faculty of Social and Behavioural Sciences at Utrecht University under reference number #19-196. A PDF of the original application may be found in the "documentation" folder. No new data was collected, and only publically available data was used in this study.
 
 ## Permission and access
 
+All software developed in the course of this thesis has been assigned a Digital Object Identifier (DOI) and is stored on [Zenodo](https://zenodo.org/). This repository contains all documentation about the thesis. Its DOI is XXX.XXX.XXX and it is available through the URL \<URL-TO-ZENODO\>. Access to the research archive is open-source.
+
+A copy of this repository (and the other repositories mentioned in section 3) has been stored in the archives of Utrecht University. These data will be stored for a minimum duration of 10 years.
+
 ## References
 
-# Docker container --> running iterations
+[1]
 
-1. docker volume create sleepsimrmodels
-2. cd run-simulations-docker-compose && docker-compose up --scale iteration=3 -d
+[2]
 
-# Setting up the API server
+[3]
 
-docker run --mount source=sleepsimR,target=/var/sleepsimR --name helper busybox
+[4]
+
