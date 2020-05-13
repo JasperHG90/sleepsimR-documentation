@@ -3,3 +3,4 @@ thesis-docs.code-workspace
 *.simg
 run-simulations-surf-lisa/app
 manuscript
+.Rproj.user
