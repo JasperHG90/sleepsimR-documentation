@@ -94,9 +94,35 @@ The table below lists all the software that I used in the production of my thesi
 |                              	|                                                            	| 10.5281/zenodo.3778195 	| 1.5.2   	| This version is used with versions 1.5.1 (Scenario 2), 1.5.3 and 1.5.4 of the sleepsimR-api program. In this version, the emission distribution means are spread out and the self-transition probabilities are lowered.                                  	|
 | sleepsimR-sleepdata-analysis 	| https://github.com/JasperHG90/sleepsimR-sleepdata-analysis 	| XXX.XXX.XXX            	| 1.0     	| Docker application. This program allows the user to run a single chain of the model used in the empirical analysis.                                                                                                                                      	|
 
-### 5. Replicating the analysis
+### 4. Replicating the analysis
+
+Here, I give specific instructions on reproducing the results of the analysis.
 
 #### 5.1 Data collection & preprocessing
+
+First, download the %%LINK%% sleepsimR-collect and sleepsimR-preprocess programs and unzip the contents in a directory of your choosing;
+
+```shell
+
+```
+
+Enter each repository and build the docker programs:
+
+```shell
+cd sleepsimR-collect && docker build . -t jhginn/sleepsimr-collect && cd .. && cd sleepsimR-preprocess && docker build . -t jhginn/sleepsimr-preprocess & cd ..
+```
+
+Create two docker volumes to store the data:
+
+```shell
+docker volume create sleepsimr_raw && docker volume create sleepsimr_processed
+```
+
+Then, download the EDFX sleep data by executing the following command:
+
+```shell
+docker run --rm jhginn/sleepsimr-collect 
+```
 
 #### 5.2 Simulation design & execution
 
