@@ -96,9 +96,27 @@ The table below lists all the software that I used in the production of my thesi
 
 ### 4. Replicating the analysis
 
-Here, I give specific instructions on reproducing the results of the analysis.
+Here, I give specific instructions on reproducing the results of the analysis. First, ensure that you have the R libraries "sleepsimR", "sleepsimRdata" and "sleepsimReval" installed on your device. The procedure is the same for all the R libraries, and I only give specific instructions for the R library "sleepsimR".
 
-#### 5.1 Data collection & preprocessing
+First, download the R library from the Zenodo link provided in the table in section 3:
+
+```shell
+wget https://zenodo.org/record/3804726/files/JasperHG90/sleepsimR-v0.5.zip?download=1 -O sleepsimR-v0.5.zip
+```
+
+Unzip the file
+
+```shell
+unzip sleepsimR-v0.5.zip
+```
+
+In R/Rstudio, install the library as follows:
+
+```R
+devtools::install("<PATH-TO-FOLDER>/JasperHG90-sleepsimR-1c2dca4")
+```
+
+#### 4.1 Data collection & preprocessing
 
 The dataset used in this thesis can be downloaded [here](https://physionet.org/content/sleep-edfx/1.0.0/). 
 
@@ -156,9 +174,11 @@ Then, remove the busybox container
 docker stop helper && docker rm helper
 ```
 
-#### 5.2 Simulation design & execution
+The final preprocessing steps for the `EEG_data_final.rds` data file are conducted in the [sleepsimRdata R library](https://github.com/JasperHG90/sleepsimRdata/blob/master/data-raw/1_preprocess_sleep_data/preprocess_sleep_data.R). The final file is included in the sleepsimRdata R library and can be loaded as follows:
 
-#### 5.3 Analysis & empirical application
+#### 4.2 Simulation design & execution
+
+#### 4.3 Analysis & empirical application
 
 ### 6. (Final) datasets
 
