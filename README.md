@@ -251,7 +251,7 @@ By clicking on a library, you can view all functions that it contains. Clicking 
 
 #### 3.1 Data collection & preprocessing
 
-This analysis uses the [sleep-EDF (expanded)](https://physionet.org/content/sleep-edfx/1.0.0/) dataset. I created several programs to download and preprocess this data directly from the website. Please view the instructions to download and preprocess the data [here](https://github.com/JasperHG90/sleepsimR-documentation/blob/master/pipeline/1_data_collection_and_preprocess/collect_and_preprocess.md).
+This analysis uses the [sleep-EDF (expanded)](https://physionet.org/content/sleep-edfx/1.0.0/) dataset which has been collected by Bob Kemp and published on Fysionet. I created several programs to download and preprocess this data directly from the website. Please view the instructions to download and preprocess the data [here](https://github.com/JasperHG90/sleepsimR-documentation/blob/master/pipeline/1_data_collection_and_preprocess/collect_and_preprocess.md).
 
 The final data file is included in the sleepsimRdata R library and can be loaded as follows:
 
