@@ -1,4 +1,4 @@
-## Compute simulation metrics
+## Make figure 9b in my thesis
 
 ## Compute bias, MSE, emperical SE etc.
 rm(list=ls())
@@ -10,7 +10,7 @@ library(dplyr)
 
 # Base folder
 SCEN <- 4
-BASE_FOLDER <- "data-raw/5_preprocess_baseline_results/data_preprocessed/"
+BASE_FOLDER <- "baseline_models/data_preprocessed/"
 
 # Rounder function
 rounder <- function(x, digits=2) {
@@ -23,7 +23,7 @@ emiss_varmu_est_4 <- readRDS(paste0(BASE_FOLDER, "emission_varmu_est_scen", 4, "
   slice(1:245)
 # True values are in the dataset already (zeta)
 
-# Prep the emission mean data.
+# Prep the component distribution random effect data. (scenario 3)
 prepped_emiss_varmu_data3 <- emiss_varmu_est_3 %>%
   distinct() %>%
   gather(var, val, -scenario_id, - iteration_id,
@@ -39,6 +39,8 @@ prepped_emiss_varmu_data3 <- emiss_varmu_est_3 %>%
   arrange(emiss_var_short, state) %>%
   mutate(pbias = (val - 0.5) / 0.5)
 
+# Prep the component distribution random effect data (scenario 5)
+# NB: not a typo: internally, scenario 5 is scenario 4
 prepped_emiss_varmu_data4 <- emiss_varmu_est_4 %>%
   distinct() %>%
   gather(var, val, -scenario_id, - iteration_id,
@@ -54,6 +56,7 @@ prepped_emiss_varmu_data4 <- emiss_varmu_est_4 %>%
   arrange(emiss_var_short, state) %>%
   mutate(pbias = (val - 0.5) / 0.5)
 
+# Bind in data frame for plotting
 plot_against <- data.frame(
   x = prepped_emiss_varmu_data3$pbias,
   y = prepped_emiss_varmu_data4$pbias,
@@ -63,9 +66,12 @@ plot_against <- data.frame(
 
 library(ggplot2)
 library(ggExtra)
+# Create a mapping
 state_map <- c("state1" = "Awake", "state2" = "NREM", "state3" = "REM")
 var_map <- c("EEG_mean_beta" = "EEG mean beta", "EOG_median_theta" = "EOG median theta",
              "EOG_min_beta" = "EOG min beta")
+
+# Make plot 9b
 ggplot(plot_against %>%
          mutate(state = state_map[state],
                 emiss_var_short = var_map[emiss_var_short]),
@@ -82,6 +88,3 @@ ggplot(plot_against %>%
   theme_thesis() +
   theme(legend.position = "none",
         axis.text = element_text(size=rel(0.9)))
-
-#%% Plot emp SE and modSE ----
-

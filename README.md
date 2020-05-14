@@ -218,7 +218,7 @@ The table below lists all the software that I used in the production of my thesi
 
 Here, I give specific instructions on reproducing the results of the analysis. First, ensure that you have the R libraries "sleepsimR", "sleepsimRdata" and "sleepsimReval" installed on your device. The procedure is the same for all the R libraries, and I only give specific instructions for the R library "sleepsimR".
 
-First, download the R library from the Zenodo link provided in the table in table 1:
+First, download the R library from the Zenodo link provided in the table 1:
 
 ```shell
 wget https://zenodo.org/record/3826088/files/JasperHG90/sleepsimR-v0.6.zip?download=1 -O sleepsimR-v0.6.zip

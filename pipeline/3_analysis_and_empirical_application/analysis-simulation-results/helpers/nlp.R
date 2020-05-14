@@ -1,4 +1,10 @@
 ### Nested loop plot
+# 
+# NB: I am NOT the author of this function.
+#
+# Code is copied directly from rsimsum R library <https://github.com/ellessenne/rsimsum>
+# I add some additional options that I need (i.e. color by latent state).
+# I added the original license of the rsimsum library to this folder. (LICENSE_rsimsum.txt).
 #' @keywords internal
 nlp <- function(data, methodvar, by, stats, target, top, col = NULL, linesize=1) {
   ### Compute internal data
