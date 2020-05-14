@@ -218,7 +218,7 @@ The table below lists all the software that I used in the production of my thesi
 
 Here, I give specific instructions on reproducing the results of the analysis. First, ensure that you have the R libraries "sleepsimR", "sleepsimRdata" and "sleepsimReval" installed on your device. The procedure is the same for all the R libraries, and I only give specific instructions for the R library "sleepsimR".
 
-First, download the R library from the Zenodo link provided in the table in section 3:
+First, download the R library from the Zenodo link provided in the table in table 1:
 
 ```shell
 wget https://zenodo.org/record/3804726/files/JasperHG90/sleepsimR-v0.5.zip?download=1 -O sleepsimR-v0.5.zip
@@ -281,7 +281,7 @@ The design can be summarized as follows:
 
 ##### 3.2.1 Setting up the simulation API
 
-To run the simulations, I use the [LISA](https://userinfo.surfsara.nl/systems/lisa) high-performance computing (HPC) environment provided by SURF. The table in section 3 lists all of the versions of the API that I use to obtain my results. The process of setting up these scenarios is identical for each version, and hence I only show the required steps for a single version.
+To run the simulations, I use the [LISA](https://userinfo.surfsara.nl/systems/lisa) high-performance computing (HPC) environment provided by SURF. The table in table 1 lists all of the versions of the API that I use to obtain my results. The process of setting up these scenarios is identical for each version, and hence I only show the required steps for a single version.
 
 First, you need to set up a virtual machine on Google Cloud (or a cloud service provider of your choice). This virtual machine can be quite small; 2 vCPUs and 4GB of RAM should suffice. Make sure to use Ubuntu 18.04 as your operating system and assign an SSD hard drive of at least 30GB. Next, ensure that the virtual machine is publically reachable on port 80. This allows the API to communicate with each of the simulation iteration containers. 
 
@@ -327,7 +327,7 @@ I affirm to have followed professional ethical guidelines in preparing this work
 
 All software developed in the course of this thesis has been assigned a Digital Object Identifier (DOI) and is stored on [Zenodo](https://zenodo.org/). This repository contains all documentation about the thesis. Its DOI is [![DOI](https://zenodo.org/badge/263343539.svg)](https://zenodo.org/badge/latestdoi/263343539). Access to the research archive is open-source.
 
-A copy of this repository (and the other repositories mentioned in section 3) has been stored in the archives of Utrecht University. These data will be stored for a minimum duration of 10 years. As per the [Zenodo data retention policy](https://about.zenodo.org/policies/), the archive will be retained for the lifetime of the repository. This is currently the lifetime of the host laboratory CERN, which currently has an experimental programme defined for the next 20 years at least.
+A copy of this repository (and the other repositories mentioned in table 1) has been stored in the archives of Utrecht University. These data will be stored for a minimum duration of 10 years. As per the [Zenodo data retention policy](https://about.zenodo.org/policies/), the archive will be retained for the lifetime of the repository. This is currently the lifetime of the host laboratory CERN, which currently has an experimental programme defined for the next 20 years at least.
 
 ## References
 
