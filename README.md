@@ -325,7 +325,7 @@ I affirm to have followed professional ethical guidelines in preparing this work
 
 ## C. Permission and access
 
-All software developed in the course of this thesis has been assigned a Digital Object Identifier (DOI) and is stored on [Zenodo](https://zenodo.org/). This repository contains all documentation about the thesis. Its DOI is XXX.XXX.XXX and it is available through the URL \<URL-TO-ZENODO\>. Access to the research archive is open-source.
+All software developed in the course of this thesis has been assigned a Digital Object Identifier (DOI) and is stored on [Zenodo](https://zenodo.org/). This repository contains all documentation about the thesis. Its DOI is [![DOI](https://zenodo.org/badge/263343539.svg)](https://zenodo.org/badge/latestdoi/263343539). Access to the research archive is open-source.
 
 A copy of this repository (and the other repositories mentioned in section 3) has been stored in the archives of Utrecht University. These data will be stored for a minimum duration of 10 years. As per the [Zenodo data retention policy](https://about.zenodo.org/policies/), the archive will be retained for the lifetime of the repository. This is currently the lifetime of the host laboratory CERN, which currently has an experimental programme defined for the next 20 years at least.
 
