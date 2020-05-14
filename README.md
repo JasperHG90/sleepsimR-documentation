@@ -212,8 +212,6 @@ The table below lists all the software that I used in the production of my thesi
 </tbody>
 </table>
 
-
-
 ### 3. Replicating the analysis
 
 Here, I give specific instructions on reproducing the results of the analysis. First, ensure that you have the R libraries "sleepsimR", "sleepsimRdata" and "sleepsimReval" installed on your device. The procedure is the same for all the R libraries, and I only give specific instructions for the R library "sleepsimR".
@@ -221,19 +219,19 @@ Here, I give specific instructions on reproducing the results of the analysis. F
 First, download the R library from the Zenodo link provided in the table in table 1:
 
 ```shell
-wget https://zenodo.org/record/3804726/files/JasperHG90/sleepsimR-v0.5.zip?download=1 -O sleepsimR-v0.5.zip
+wget https://zenodo.org/record/3826088/files/JasperHG90/sleepsimR-v0.6.zip?download=1 -O sleepsimR-v0.6.zip
 ```
 
 Unzip the file
 
 ```shell
-unzip sleepsimR-v0.5.zip
+unzip sleepsimR-v0.6.zip
 ```
 
 In R/Rstudio, install the library as follows:
 
 ```R
-devtools::install("<PATH-TO-FOLDER>/JasperHG90-sleepsimR-1c2dca4")
+devtools::install("<PATH-TO-FOLDER>/JasperHG90-sleepsimR-75fca08")
 ```
 
 #### 3.1 Data collection & preprocessing
@@ -335,9 +333,67 @@ sim_results <- simulation_data_emiss_means$summary_by_scenario # Simulation resu
 
 #### 3.3 Analysis & empirical application
 
-##### 3.3.1 Running the model
+##### 3.3.1 Analysis of results: model convergence
 
-I **strongly** suggest that you run this model on a cloud VM. Running the mHMM with 20.000 iterations will flood your RAM because, in the limit, the memory footprint is determined by (number of subjects x number of occasions x number of outcome variables x number of component distributions x number of MCMC iterations). 
+To assess model convergence, I created a small shiny application that you can find under "pipeline/3_analysis_and_empirical_application/shiny-app-model-convergence". To use this shiny application, install the following prerequisites in your R environment:
+
+```R
+install.packages(c("dplyr", "shiny", "shinyjs"))
+```
+
+Then, put the stored results of the first model chain under "data/simulations". Place the second chain under "data/rerun". 
+
+Open the 'sleepsimR-convergence.Rproj' R project and click on "run app". The results of the analysis will be stored in a root file called "history.rds".
+
+##### 3.3.1 Running the models used in the empirical application
+
+You can replicate my results for the empirical analysis by using the "sleepsimR-sleepdata-analysis" docker program. I **strongly** suggest that you run this model on a cloud VM. Running the mHMM with 20.000 iterations will flood your RAM because, in the limit, the memory footprint is determined by (number of subjects X number of occasions X number of outcome variables X number of component distributions X number of MCMC iterations). Also be aware that running these models will take +- 20 hours each on a reasonably fast machine.
+
+First, download the program by executing:
+
+```shell
+wget https://zenodo.org/record/3826163/files/JasperHG90/sleepsimR-sleepdata-analysis-v0.5.zip?download=1 -O sleepsimR-sleepdata-analysis-v0.5.zip
+```
+
+Unzip the archive:
+
+```shell
+unzip sleepsimR-sleepdata-analysis-v0.5.zip
+```
+
+Build the docker image:
+
+```shell
+cd JasperHG90-sleepsimR-sleepdata-analysis-a3b44a8 && docker build . -t jhginn/sleepsimr-sleepdata-analysis:version-0.5
+```
+
+Run the first chain of the model using the following line of code:
+
+```shell
+# Run the docker container
+docker run --rm --mount source=sleepsimr_analysis,target=/var/sleepsimr_sleepdata_analysis jhginn/sleepsimr-sleepdata-analysis 20000 10000 --variables EEG_Fpz_Cz_mean_theta EOG_min_beta EOG_median_theta --seed 332245
+```
+
+Run the second chain using the following line of code:
+
+```shell
+# Run the docker container
+docker run --rm --mount source=sleepsimr_analysis,target=/var/sleepsimr_sleepdata_analysis jhginn/sleepsimr-sleepdata-analysis 20000 10000 --variables EEG_Fpz_Cz_mean_theta EOG_min_beta EOG_median_theta --seed 332246
+```
+
+Next, copy the models from the docker volume to the host device:
+
+```shell
+# Copying the resulting models
+docker run --mount source=sleepsimr_analysis,target=/var/sleepsimR --name helper busybox
+docker cp helper:/var/sleepsimR models_empirical_application
+# Remove helper
+docker stop helper && docker rm helper
+```
+
+##### 3.3.2 Analysis of the empirical application
+
+
 
 ##### 3.3.1 Analyses and Figures
 
