@@ -2,7 +2,7 @@
 
 First, download and install singularity 2.6 **on your own device** by following [the instructions](https://sylabs.io/guides/2.6/user-guide/quick_start.html#quick-installation-steps).
 
-Next, download and unzip the version of "sleepsimR-run" that pairs with the API version you are running (see table in section 3):
+Next, download and unzip the version of "sleepsimR-run" that pairs with the API version you are running (see entries in table 1 in main README file):
 
 ```shell
 wget https://zenodo.org/record/3727710/files/JasperHG90/sleepsimR-run-v1.3.zip?download=1 -O sleepsimR-run-v1.3.zip && unzip sleepsimR-run-v1.3.zip
