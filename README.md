@@ -71,7 +71,7 @@ All R libraries that are required for the project are included in the R librarie
 
 The figure below shows a graphical description of the project pipeline. The pipeline is subdivided into thee major components. The software that was developed for each of these components is listed underneath each of these components.
 
- <figure>
+<figure>
   <img src="img/pipeline.png" alt="Pipeline" style="width:80%">
   <figcaption><i>Figure 1: thesis project pipeline from data collection to analysis of the results. I subdivide the pipeline into three major components: (1) data collection and preprocessing, (2) simulation design and execution, and (3) Analysis and empirical application. The software that was developed throughout the project is listed underneath these components.</i></figcaption>
 </figure> 
@@ -236,6 +236,19 @@ In R/Rstudio, install the library as follows:
 devtools::install("<PATH-TO-FOLDER>/JasperHG90-sleepsimR-75fca08")
 ```
 
+In general, the functions in the R libraries are well-documented and should provide you with more specific information. After installing the library, you can search for it using the R-studio functionality:
+
+<figure>
+  <img src="img/rdocs.png" alt="Pipeline" style="width:80%">
+</figure> 
+
+By clicking on a library, you can view all functions that it contains. Clicking on these functions brings you to their documentation.
+
+<figure>
+  <img src="img/Rhelp.png" alt="Pipeline" style="width:80%">
+</figure> 
+
+
 #### 3.1 Data collection & preprocessing
 
 This analysis uses the [sleep-EDF (expanded)](https://physionet.org/content/sleep-edfx/1.0.0/) dataset. I created several programs to download and preprocess this data directly from the website. Please view the instructions to download and preprocess the data [here](https://github.com/JasperHG90/sleepsimR-documentation/blob/master/pipeline/1_data_collection_and_preprocess/collect_and_preprocess.md).
@@ -272,7 +285,7 @@ data("scen")
 ?sleepsimRdata::scen_baseline
 ```
 
-The scenarios generated as outlined above contain all necessary information to generate data using the mHMMbayes R library and to run the analysis. Data and model seeds are set at the iteration level, making each simulation iteration exactly replicable. Starting values are defined in advance. I check that the starting values are unique.
+The scenarios generated as outlined above contain all necessary information to generate data using the mHMMbayes R library and to run the analysis. Data and model seeds are set at the iteration level, making each simulation iteration exactly replicable. Starting values are defined in advance. I check that the starting values are unique. The script that is used to generate simulated data and run a model is provided by the "sleepsimR-run" program. You can view the code of the latest release of this program [here](https://github.com/JasperHG90/sleepsimR-run/blob/master/app/run_sleepsimR.R#L106-L146). The functions used to generate the data and run the model are called [generate_data()](https://github.com/JasperHG90/sleepsimR/blob/master/R/simulate.R) and [run_mHMM()](https://github.com/JasperHG90/sleepsimR/blob/master/R/run_model.R). These functions are provided in the "sleepsimR" library, and their help files contain more specific information.
 
 ##### 3.2.2 Short description of the simulation design
 
