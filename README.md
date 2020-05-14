@@ -2,7 +2,7 @@
 
 [![DOI](https://zenodo.org/badge/263343539.svg)](https://zenodo.org/badge/latestdoi/263343539)
 <!-- ![lifecycle](https://img.shields.io/badge/lifecycle-archived-green)] -->
-![lifecycle](https://img.shields.io/badge/lifecycle-under%20construction-red]
+![lifecycle](https://img.shields.io/badge/lifecycle-under%20construction-red.svg]
 
 This repository contains the research archive accompanying my Master's thesis. 
 
