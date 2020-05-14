@@ -238,7 +238,7 @@ devtools::install("<PATH-TO-FOLDER>/JasperHG90-sleepsimR-75fca08")
 
 #### 3.1 Data collection & preprocessing
 
-This analysis uses the [sleep-EDF (expanded)](https://physionet.org/content/sleep-edfx/1.0.0/) dataset. I created several programs to download and preprocess this data directly from the website. Please view the instructions to download and preprocess the data [here]().
+This analysis uses the [sleep-EDF (expanded)](https://physionet.org/content/sleep-edfx/1.0.0/) dataset. I created several programs to download and preprocess this data directly from the website. Please view the instructions to download and preprocess the data [here](https://github.com/JasperHG90/sleepsimR-documentation/blob/master/pipeline/1_data_collection_and_preprocess/collect_and_preprocess.md).
 
 The final data file is included in the sleepsimRdata R library and can be loaded as follows:
 
