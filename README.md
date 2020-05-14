@@ -210,7 +210,9 @@ The table below lists all the software that I used in the production of my thesi
     <td>Docker application. This program allows the user to run a single chain of the model used in the empirical analysis.</td>
   </tr>
 </tbody>
-</table>                                                                                                                          	|
+</table>
+
+
 
 ### 3. Replicating the analysis
 
@@ -325,7 +327,7 @@ I affirm to have followed professional ethical guidelines in preparing this work
 
 All software developed in the course of this thesis has been assigned a Digital Object Identifier (DOI) and is stored on [Zenodo](https://zenodo.org/). This repository contains all documentation about the thesis. Its DOI is XXX.XXX.XXX and it is available through the URL \<URL-TO-ZENODO\>. Access to the research archive is open-source.
 
-A copy of this repository (and the other repositories mentioned in section 3) has been stored in the archives of Utrecht University. These data will be stored for a minimum duration of 10 years.
+A copy of this repository (and the other repositories mentioned in section 3) has been stored in the archives of Utrecht University. These data will be stored for a minimum duration of 10 years. As per the [Zenodo data retention policy](https://about.zenodo.org/policies/), the archive will be retained for the lifetime of the repository. This is currently the lifetime of the host laboratory CERN, which currently has an experimental programme defined for the next 20 years at least.
 
 ## References
 
