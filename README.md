@@ -239,13 +239,13 @@ devtools::install("<PATH-TO-FOLDER>/JasperHG90-sleepsimR-75fca08")
 In general, the functions in the R libraries are well-documented and should provide you with more specific information. After installing the library, you can search for it using the R-studio functionality:
 
 <figure>
-  <img src="img/rdocs.png" alt="Pipeline" style="width:80%">
+  <img src="img/rdocs.png" alt="Pipeline" style="width:30%">
 </figure> 
 
 By clicking on a library, you can view all functions that it contains. Clicking on these functions brings you to their documentation.
 
 <figure>
-  <img src="img/Rhelp.png" alt="Pipeline" style="width:80%">
+  <img src="img/Rhelp.png" alt="Pipeline" style="width:30%">
 </figure> 
 
 
