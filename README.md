@@ -47,6 +47,8 @@ Based on previous studies in the multilevel modeling literature generally and fo
 
 The full manuscript is available under the folder "/manuscript"
 
+All analyses in my thesis are based on the R library [mHMMbayes](https://github.com/emmekeaarts/mHMMbayes), which was developed by [Dr. Emmeke Aarts](https://www.uu.nl/staff/eaarts).
+
 ## Disclaimer
 
 In the instructions given below, I assume that you have access to a bash-like terminal. I also note that you cannot use Docker on [Windows 10 Home](https://docs.docker.com/docker-for-windows/install/), although there is [a workaround](https://medium.com/@mbyfieldcameron/docker-on-windows-10-home-edition-c186c538dff3) that you can use.
