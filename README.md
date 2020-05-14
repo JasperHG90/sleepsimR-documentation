@@ -362,7 +362,7 @@ Then, put the stored results of the first model chain under "data/simulations". 
 
 Open the 'sleepsimR-convergence.Rproj' R project and click on "run app". The results of the analysis will be stored in a root file called "history.rds".
 
-The results of my analysis are included in the above folder.
+The results of my analysis are included in the above folder. This file is named "history.rdsg".
 
 ##### 3.3.2 Analysis of simulation results: assessment and figures
 
