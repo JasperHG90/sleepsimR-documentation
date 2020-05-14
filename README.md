@@ -94,8 +94,8 @@ The table below lists all the software that I used in the production of my thesi
 <tbody>
   <tr>
     <td>sleepsimR-collect</td>
-    <td><a href="https://doi.org/10.5281/zenodo.3826066">DOI: 10.5281/zenodo.3826066</a></td>
-    <td><a href="https://zenodo.org/record/3826066/files/JasperHG90/sleepsimR-collect-v0.1.zip?download=1" target="_blank" rel="noopener noreferrer">Download</a></td>
+    <td><a href="https://doi.org/10.5281/zenodo.3826081">DOI: 10.5281/zenodo.3826081</a></td>
+    <td><a href="https://zenodo.org/record/3826081/files/JasperHG90/sleepsimR-collect-v0.3.zip?download=1" target="_blank" rel="noopener noreferrer">Download</a></td>
     <td>0.3</td>
     <td>Docker application that downloads the sleep-edfx database.</td>
   </tr>
@@ -103,136 +103,6 @@ The table below lists all the software that I used in the production of my thesi
     <td>sleepsimR-preprocess</td>
     <td><a href="https://doi.org/10.5281/zenodo.3826082">DOI: 10.5281/zenodo.3826082</a></td>
     <td><a href="https://zenodo.org/record/3826082/files/JasperHG90/sleepsimR-preprocess-v0.3.zip?download=1" target="_blank" rel="noopener noreferrer">Download</a></td>
-    <td>0.3</td>
-    <td>This docker application preprocesses the downloaded sleep-edfx database. </td>
-  </tr>
-  <tr>
-    <td>sleepsimR</td>
-    <td><a href="https://doi.org/10.5281/zenodo.3826088">DOI: 10.5281/zenodo.3826088</a></td>
-    <td><a href="https://zenodo.org/record/3826088/files/JasperHG90/sleepsimR-v0.6.zip?download=1" target="_blank" rel="noopener noreferrer">Download</a><br></td>
-    <td>0.6</td>
-    <td>R library that contains convenience functions to generate simulation scenarios, to run an mHMM, to simulate datasets and to obtain MAP estimates.</td>
-  </tr>
-  <tr>
-    <td>sleepsimRdata</td>
-    <td><a href="https://doi.org/10.5281/zenodo.3826139">DOI: 10.5281/zenodo.3826139</a></td>
-    <td><a href="https://zenodo.org/record/3826139/files/JasperHG90/sleepsimRdata-v0.3.zip?download=1" target="_blank" rel="noopener noreferrer">Download</a><br></td>
-    <td>0.3</td>
-    <td>R library that contains scripts used to generate simulation scenarios and to preprocess the simulation results. This library contains all raw data, summary statistics, simulation scenarios and simulation results obtained in the course of the study.</td>
-  </tr>
-  <tr>
-    <td>sleepsimReval</td>
-    <td><a href="https://doi.org/10.5281/zenodo.3826140">DOI: 10.5281/zenodo.3826140</a></td>
-    <td><a href="https://zenodo.org/record/3826140/files/JasperHG90/sleepsimReval-v0.8.1.zip?download=1" target="_blank" rel="noopener noreferrer">Download</a></td>
-    <td>0.8.1</td>
-    <td>R library that contains simulation evaluation metrics and utility functions to parse simulation results and assess convergence of MCMC chains.</td>
-  </tr>
-  <tr>
-    <td>sleepsimR-api</td>
-    <td><a href="https://doi.org/10.5281/zenodo.3727773">DOI: 10.5281/zenodo.3727773</a></td>
-    <td><a href="https://zenodo.org/record/3727773/files/JasperHG90/sleepsimR-api-v1.3.1.zip?download=1" target="_blank" rel="noopener noreferrer">Download</a><br></td>
-    <td>1.3.1</td>
-    <td>Docker application. Resource manager that I use to organize my simulation study. This version contains the first 7.000 iterations (approx. 48 iterations / scenario).</td>
-  </tr>
-  <tr>
-    <td></td>
-    <td><a href="https://doi.org/10.5281/zenodo.3731364">DOI: 10.5281/zenodo.3731364</a></td>
-    <td><a href="https://zenodo.org/record/3731364/files/JasperHG90/sleepsimR-api-v1.3.2.zip?download=1" target="_blank" rel="noopener noreferrer">Download</a></td>
-    <td>1.3.2</td>
-    <td>This version contains the remaining +- 29.000 iterations of the simulation study.</td>
-  </tr>
-  <tr>
-    <td></td>
-    <td><a href="https://doi.org/10.5281/zenodo.3747158">DOI: 10.5281/zenodo.3747158</a></td>
-    <td><a href="https://zenodo.org/record/3747158/files/JasperHG90/sleepsimR-api-v1.3.3.zip?download=1" target="_blank" rel="noopener noreferrer">Download</a><br></td>
-    <td>1.3.3</td>
-    <td>This version contains +- 834 iterations (approx. 6 iterations / scenario) that are used to assess convergence of a small percentage of the models that are estimated in the simulation study.</td>
-  </tr>
-  <tr>
-    <td></td>
-    <td><a href="https://doi.org/10.5281/zenodo.3784910">DOI: 10.5281/zenodo.3784910</a></td>
-    <td><a href="https://zenodo.org/record/3784910/files/JasperHG90/sleepsimR-api-1.5.1.zip?download=1" target="_blank" rel="noopener noreferrer">Download</a><br></td>
-    <td>1.5.1</td>
-    <td>This version contains the simulation instructions for baseline scenarios 1 and 2.</td>
-  </tr>
-  <tr>
-    <td></td>
-    <td><a href="https://doi.org/10.5281/zenodo.3784934">DOI: 10.5281/zenodo.3784934</a></td>
-    <td><a href="https://zenodo.org/record/3784934/files/JasperHG90/sleepsimR-api-1.5.2.zip?download=1" target="_blank" rel="noopener noreferrer">Download</a><br></td>
-    <td>1.5.2</td>
-    <td>This version contains the simulation instructions for baseline scenario 5.</td>
-  </tr>
-  <tr>
-    <td></td>
-    <td><a href="https://doi.org/10.5281/zenodo.3786154">DOI: 10.5281/zenodo.3786154</a></td>
-    <td><a href="https://zenodo.org/record/3786154/files/JasperHG90/sleepsimR-api-v1.5.3.zip?download=1" target="_blank" rel="noopener noreferrer">Download</a><br></td>
-    <td>1.5.3</td>
-    <td>This version contains the simulation instructions for baseline scenario 3.</td>
-  </tr>
-  <tr>
-    <td></td>
-    <td><a href="https://doi.org/10.5281/zenodo.3793259">DOI: 10.5281/zenodo.3793259</a></td>
-    <td><a href="https://zenodo.org/record/3793259/files/JasperHG90/sleepsimR-api-v1.5.4.zip?download=1" target="_blank" rel="noopener noreferrer">Download</a><br></td>
-    <td>1.5.4</td>
-    <td>This version contains the simulation instructions for baseline scenario 4.</td>
-  </tr>
-  <tr>
-    <td>sleepsimRapiClient</td>
-    <td><a href="https://doi.org/10.5281/zenodo.3805052">DOI: 10.5281/zenodo.3805052</a><br></td>
-    <td><a href="https://zenodo.org/record/3805052/files/JasperHG90/sleepsimRapiClient-v1.zip?download=1" target="_blank" rel="noopener noreferrer">Download</a><br></td>
-    <td>1.0</td>
-    <td>R library that contains convenience functions to retrieve simulation parameters from the resource manager and allows you to send back the results.<br></td>
-  </tr>
-  <tr>
-    <td>sleepsimR-run</td>
-    <td><a href="https://doi.org/10.5281/zenodo.3727710">DOI: 10.5281/zenodo.3727710</a></td>
-    <td><a href="https://zenodo.org/record/3727710/files/JasperHG90/sleepsimR-run-v1.3.zip?download=1" target="_blank" rel="noopener noreferrer">Download</a></td>
-    <td>1.3</td>
-    <td>Docker application. Contains the R script that I use to run a single iteration of the simulation study. This version is used with versions 1.3.1, 1.3.2, 1.3.3 of the sleepsimR-api program.</td>
-  </tr>
-  <tr>
-    <td></td>
-    <td><a href="https://doi.org/10.5281/zenodo.3778191">DOI: 10.5281/zenodo.3778191</a></td>
-    <td><a href="https://zenodo.org/record/3778191/files/JasperHG90/sleepsimR-run-v1.5.1.zip?download=1" target="_blank" rel="noopener noreferrer">Download</a><br></td>
-    <td>1.5.1</td>
-    <td>This version is used with version 1.5.1 (Scenario 1)  of the sleepsimR-api program. In this version, the emission distribution means are spread out.</td>
-  </tr>
-  <tr>
-    <td></td>
-    <td><a href="https://doi.org/10.5281/zenodo.3778195">DOI: 10.5281/zenodo.3778195</a></td>
-    <td><a href="https://zenodo.org/record/3778195/files/JasperHG90/sleepsimR-run-v1.5.2.zip?download=1" target="_blank" rel="noopener noreferrer">Download</a><br></td>
-    <td>1.5.2</td>
-    <td>This version is used with versions 1.5.1 (Scenario 2), 1.5.3 and 1.5.4 of the sleepsimR-api program. In this version, the emission distribution means are spread out and the self-transition probabilities are lowered.</td>
-  </tr>
-  <tr>
-    <td>sleepsimR-sleepdata-analysis</td>
-    <td><a href="https://doi.org/10.5281/zenodo.3826163">DOI: 10.5281/zenodo.3826163</a></td>
-    <td><a href="https://zenodo.org/record/3826163/files/JasperHG90/sleepsimR-sleepdata-analysis-v0.5.zip?download=1" target="_blank" rel="noopener noreferrer">Download</a><br></td>
-    <td>0.5<br></td>
-    <td>Docker application. This program allows the user to run a single chain of the model used in the empirical analysis.</td>
-  </tr>
-</tbody>
-</table>
-  <tr>
-    <th>Name</th>
-    <th>DOI (URL to archived version)<br></th>
-    <th>Download ZIP<br></th>
-    <th>Version</th>
-    <th>Description</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td>sleepsimR-collect</td>
-    <td><a href="https://doi.org/10.5281/zenodo.3826066">DOI: 10.5281/zenodo.3826066</a></td>
-    <td><a href="https://zenodo.org/record/3826066/files/JasperHG90/sleepsimR-collect-v0.1.zip?download=1" target="_blank" rel="noopener noreferrer">Download</a></td>
-    <td>0.3</td>
-    <td>Docker application that downloads the sleep-edfx database.</td>
-  </tr>
-  <tr>
-    <td>sleepsimR-preprocess</td>
-    <td><a href="https://doi.org/10.5281/zenodo.3826068">DOI: 10.5281/zenodo.3826068</a></td>
-    <td><a href="https://zenodo.org/record/3826068/files/JasperHG90/sleepsimR-preprocess-v0.1-alpha.zip?download=1" target="_blank" rel="noopener noreferrer">Download</a></td>
     <td>0.3</td>
     <td>This docker application preprocesses the downloaded sleep-edfx database. </td>
   </tr>
