@@ -368,7 +368,7 @@ The main analysis of the simulation results can be found in the folder "pipeline
 
 ##### 3.3.1 Empirical Application: Running the mHMM models
 
-You can replicate my results for the empirical analysis by using the "sleepsimR-sleepdata-analysis" docker program. I **strongly** suggest that you run this model on a cloud VM. Running the mHMM with 20.000 iterations will flood your RAM because, in the limit, the memory footprint is determined by (number of subjects X number of occasions X number of outcome variables X number of component distributions X number of MCMC iterations). Also be aware that running these models will take +- 20 hours each on a reasonably fast machine.
+You can replicate my results for the empirical analysis by using the "sleepsimR-sleepdata-analysis" docker program. The main R script can be found [here](https://github.com/JasperHG90/sleepsimR-sleepdata-analysis/blob/master/app/run_sleepdata_analysis.R). I **strongly** suggest that you run this model on a cloud VM. Running the mHMM with 20.000 iterations will flood your RAM because, in the limit, the memory footprint is determined by (number of subjects X number of occasions X number of outcome variables X number of component distributions X number of MCMC iterations). Also be aware that running these models will take +- 20 hours each on a reasonably fast machine.
 
 First, download the program by executing:
 
