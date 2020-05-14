@@ -399,6 +399,10 @@ docker cp helper:/var/sleepsimR models_empirical_application
 docker stop helper && docker rm helper
 ```
 
+Alternatively, you can download the models that I ran from [here](https://storage.googleapis.com/sleepsimr-analysis/sleepdata_analysis/models.zip).
+
+Finally, place the models you just copied in the "pipeline/3_analysis_and_empirical_application/sleep-data-analysis/models" folder.
+
 ##### 3.3.2 Empirical Application: Analysis
 
 The analysis of the empirical application can be found in the folder "pipeline/3_analysis_and_empirical_application/sleep-data-analysis".

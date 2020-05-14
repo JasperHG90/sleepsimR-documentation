@@ -15,52 +15,23 @@ rm(list=ls())
 # Load libraries
 library(sleepsimR)
 library(sleepsimReval)
+library(sleepsimRdata)
 library(tidyverse)
 library(sleepsimR)
 library(mHMMbayes)
 library(sleepsimR)
 library(dplyr)
 library(ggplot2)
-#source("utils_PPP.R")
-#source("utils_convergence.R")
 
 # Load original dataset & compute summary statistics etc. for later -----
 
+data("sleepdata")
 # Select these channels
 selected_channels <- c("EEG_Fpz_Cz_mean_theta","EOG_min_beta", "EOG_median_theta") # "EEG_Fpz_Cz_mean_beta"
-# Load data
-ait <- readRDS("../simulation_parameters/EEG_data_final.rds") %>%
-  filter(age >= 20 & age < 50) %>%
-  # Remove these variables
-  select(-patient, -gender, -age) %>%
-  # From wide to long --> var == channels, val == value
-  gather(var, val, -identifier, -sleep_state, -epoch) %>%
-  # Group by person, variable and state
-  group_by(identifier, var, sleep_state) %>%
-  # Perform logit transformation
-  mutate(val = log(val / (1-val))) %>%
-  ungroup() %>%
-  # Group by person and variable
-  group_by(identifier, var) %>%
-  # Grand-mean center variables
-  mutate(val = ((val - mean(val)) / sd(val))) %>%
-  ungroup()
-# Filter the data
-io <- ait %>%
-  filter(var %in% selected_channels) %>%
-  # Pivot to wide
-  pivot_wider(id_cols = c(identifier, epoch, sleep_state), names_from = var, values_from = val) %>%
-  # Remove epochs
-  select(-epoch)
 
-# Get unique identifiers
-# Map to numeric 1-len(identifer))
-uid <- unique(as.character(io$identifier))
-ids <- 1:length(uid)
-names(ids) <- uid
-io$id <- unname(ids[as.character(io$identifier)])
-io$identifier <- NULL
-io <- io[,c(5,1, 2, 3, 4)]
+# Subset for variables
+io <- sleepdata[,c("id", "sleep_state", selected_channels)]
+
 # Plot distributions
 io %>%
   gather(var, val, -sleep_state, -id) %>%
@@ -197,7 +168,6 @@ autocorr_plot(mod_res[[2]], "emiss_mu_bar", var=2)
 autocorr_plot(mod_res[[1]], "emiss_mu_bar", var=3)
 autocorr_plot(mod_res[[2]], "emiss_mu_bar", var=3)
 
-
 autocorr_plot(mod_res[[2]], "emiss_varmu_bar", var=1)
 autocorr_plot(mod_res[[1]], "emiss_varmu_bar", var=2)
 autocorr_plot(mod_res[[2]], "emiss_varmu_bar", var=2)
@@ -206,18 +176,6 @@ autocorr_plot(mod_res[[2]], "emiss_varmu_bar", var=3)
 
 autocorr_plot(mod_res[[1]], "gamma_int_bar")
 autocorr_plot(mod_res[[2]], "gamma_int_bar")
-
-# Density plots -----
-
-
-dens_plot(mod_res[[1]], mod_res[[2]], "emiss_mu_bar", var=2)
-dens_plot(mod_res[[1]], mod_res[[2]], "emiss_mu_bar", var=3)
-# Emission variances
-
-dens_plot(mod_res[[1]], mod_res[[2]], "emiss_varmu_bar", var=2)
-dens_plot(mod_res[[1]], mod_res[[2]], "emiss_varmu_bar", var=3)
-# Gamma intercepts
-dens_plot(mod_res[[1]], mod_res[[2]], "gamma_int_bar", var=1)
 
 # MAP Estimates ----
 
@@ -286,6 +244,7 @@ varmap <- c(
   "S3toS2" ="REM to NREM",
   "S3toS3" ="REM to REM"
 )
+# Plot between-subject transition probabilities
 o %>%
   mutate(var = varmap[var]) %>%
   ggplot(., aes(x=mapmed)) +
@@ -303,6 +262,7 @@ k <- posterior_combined_out$PD_subj %>%
   gather(var, val, -subj_idx) %>%
   group_by(subj_idx, var) %>%
   summarize(mapmed = median(val))
+# Figure 12 in thesis
 k %>%
   ungroup() %>%
   mutate(depvar = map_chr(str_split(k$var, "_"), function(x) x[1]),
@@ -382,6 +342,7 @@ facvar <- data.frame(
   ))
 # Bind
 ### Get plot for state three only
+# Figure 13 in thesis
 library(stringr)
 ola %>%
   gather(var, val) %>%
@@ -527,6 +488,7 @@ nammap <- c(
 )
 
 # Plot
+# Figure 14 in thesis
 cp %>%
   mutate(var = nammap[var],
          Period = as.factor(period)) %>%
@@ -628,18 +590,3 @@ sdsim %>%
   mutate(est_over = val.x >= val.y) %>%
   group_by(var) %>%
   summarize(p_val = sum(est_over) / n())
-
-tpm_counts <- lapply(PPPts$PPP_tpm, function(x) {
-  subj_counts <- lapply(x$tpms, function(y) {
-    period_count <- lapply(y, function(z) {
-      as.data.frame(matrix(z, ncol = length(z)))
-    }) %>%
-      do.call(rbind.data.frame, .)
-  }) %>%
-    do.call(rbind.data.frame, .)
-  idxsubj <- rep(1:41, 3)
-  subj_counts$idxsubj <- idxsubj[order(idxsubj)]
-  subj_counts$period <- rep(1:3, 41)
-  subj_counts
-}) %>%
-  do.call(rbind.data.frame, .)
