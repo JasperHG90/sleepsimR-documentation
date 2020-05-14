@@ -9,7 +9,7 @@ wget https://zenodo.org/record/3826081/files/JasperHG90/sleepsimR-collect-v0.3.z
 Enter each repository and build the docker programs:
 
 ```shell
-cd JasperHG90-sleepsimR-collect-ea01015 && docker build . -t jhginn/sleepsimr-collect && cd .. && cd JasperHG90-sleepsimR-preprocess-02976b1 && docker build . -t jhginn/sleepsimr-preprocess & cd ..
+cd JasperHG90-sleepsimR-collect-ea01015 && docker build . -t jhginn/sleepsimr-collect && cd .. && cd JasperHG90-sleepsimR-preprocess-02976b1 && docker build . -t jhginn/sleepsimr-preprocess && cd ..
 ```
 
 Create a docker volume to store the data:
