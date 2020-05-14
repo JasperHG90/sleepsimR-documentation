@@ -1,15 +1,15 @@
 # Data collection and preprocessing
 
-First, download the %%LINK%% sleepsimR-collect and sleepsimR-preprocess programs and unzip the contents in a directory of your choosing;
+First, download the sleepsimR-collect and sleepsimR-preprocess programs and unzip the contents in a directory of your choosing;
 
 ```shell
-
+wget https://zenodo.org/record/3826081/files/JasperHG90/sleepsimR-collect-v0.3.zip?download=1 -O sleepsimR-collect-v0.3.zip && wget https://zenodo.org/record/3826082/files/JasperHG90/sleepsimR-preprocess-v0.3.zip?download=1 -O sleepsimR-preprocess-v0.3.zip && unzip sleepsimR-collect-v0.3.zip && unzip sleepsimR-preprocess-v0.3.zip
 ```
 
 Enter each repository and build the docker programs:
 
 ```shell
-cd sleepsimR-collect && docker build . -t jhginn/sleepsimr-collect && cd .. && cd sleepsimR-preprocess && docker build . -t jhginn/sleepsimr-preprocess & cd ..
+cd JasperHG90-sleepsimR-collect-ea01015 && docker build . -t jhginn/sleepsimr-collect && cd .. && cd JasperHG90-sleepsimR-preprocess-02976b1 && docker build . -t jhginn/sleepsimr-preprocess & cd ..
 ```
 
 Create a docker volume to store the data:
