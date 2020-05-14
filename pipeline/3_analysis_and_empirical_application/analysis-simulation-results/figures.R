@@ -76,7 +76,7 @@ simdata_combined <- simulation_data_emiss_means$data_preprocessed %>%
   filter(!(var %in% c("S1toS1", "S2toS1", "S3toS1")))
 
 # Examine convergence history
-h <- readRDS("../shiny-app-model-convergence/history.rds") %>%
+h <- readRDS("../shiny-app-model-convergence/history.rdsg") %>%
   bind_rows()
 h[,7:30] <- apply(h[,7:30], 2, function(x) ifelse(x == "Yes", 1, 0))
 # Make a mapping
