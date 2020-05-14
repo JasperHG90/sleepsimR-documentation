@@ -79,6 +79,7 @@ The figure below shows a graphical description of the project pipeline. The pipe
 The table below lists all the software that I used in the production of my thesis results. Each of the programs is associated with their own Digital Object Identifier (DOI) that is supplied via Zenodo, and should be downloaded from the link provided in the table.
 
 <table>
+<caption><i>Table 1: overview of the software developed in the course of this thesis. The versions listed in this table are the ones used to generate all results in the thesis. Each software version is stored using a unique Digital Object Identifier (DOI), and should be downloaded from the link provided in the table.</i></caption>
 <thead>
   <tr>
     <th>Name</th>
@@ -209,7 +210,6 @@ The table below lists all the software that I used in the production of my thesi
     <td>Docker application. This program allows the user to run a single chain of the model used in the empirical analysis.</td>
   </tr>
 </tbody>
-<caption>Table 1: overview of the software developed in the course of this thesis. The versions listed in this table are the ones used to generate all results in the thesis. Each software version is stored using a unique Digital Object Identifier (DOI), and should be downloaded from the link provided in the table.</caption>
 </table>                                                                                                                          	|
 
 ### 3. Replicating the analysis
