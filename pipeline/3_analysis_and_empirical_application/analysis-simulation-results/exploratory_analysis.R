@@ -350,7 +350,6 @@ r_out %>%
   theme_thesis(text_size = 6) +
   facet_wrap("estimand~state", ncol=3, scales = "free")
 
-
 # Component distribution random effects -----
 
 # Get data, parameter results
@@ -670,4 +669,94 @@ r_out %>%
   theme_thesis(text_size = 6) +
   facet_wrap("estimand~state", ncol=3, scales = "free")
 
+# Transition probs ----
 
+## Looking for multimodality ----
+
+d <- simulation_data_gamma_prob$data_preprocessed
+r <- simulation_data_gamma_prob$summary_by_scenario
+
+# Get scenarios for which p-value of multimodal test <= 0.1
+mmo <- r %>%
+  filter(multimodal <= 0.1) %>%
+  mutate(selecvar = paste0(scenario_id, "_", transition))
+mm <- mmo %>%
+  select(selecvar) %>%
+  pull()
+
+# View param estimates
+d %>%
+  mutate(selecvar = paste0(scenario_id, "_", transition)) %>%
+  filter(selecvar %in% mm) %>%
+  ggplot(aes(x=median)) +
+  geom_density() +
+  geom_text(data=mmo, aes(x=2, y=0.75, label=multimodal, group = selecvar)) +
+  facet_wrap(". ~ selecvar", scales="free_y") 
+
+## Plotting estimates and empirical SE ----
+
+emiss_var_short_nams <- c("EEG mean beta", "EOG median theta", "EOG min beta")
+names(emiss_var_short_nams) <- c("EEG_mean_beta", "EOG_median_theta", "EOG_min_beta")
+
+# Plot parameter estimates
+# (Across Q)
+d %>%
+  #filter(n_t == state_lengths[sl]) %>%
+  mutate(nsubj = factor(paste0(n, "_", Q)),
+         median = (median-true_val),
+         # Need this to label
+         n_t_char = factor(paste0("occasions = ", as.character(n_t)),
+                           levels = c("occasions = 400", "occasions = 800",
+                                      "occasions = 1600"))) %>%
+  #select(-Q) %>%
+  #filter(Q == 0.4) %>%
+  ggplot(aes(x=nsubj, y=median)) +
+  geom_hline(yintercept = 0.25, color = "lightgrey") +
+  geom_hline(yintercept = 0.5, color = "lightgrey") +
+  geom_hline(yintercept = 1, color = "lightgrey") +
+  geom_hline(yintercept = 1.5, color = "lightgrey") +
+  geom_hline(yintercept = -0.25, color = "lightgrey") +
+  geom_hline(yintercept = -0.5, color = "lightgrey") +
+  geom_hline(yintercept = -1, color = "lightgrey") +
+  geom_hline(yintercept = -1.5, color = "lightgrey") +
+  geom_jitter(aes(), alpha=0.1) +
+  geom_hline(yintercept = 0, color="yellow", size=1,
+             linetype = "dashed") +
+  coord_flip() +
+  theme_thesis(text_size = 6, center_title = TRUE) +
+  scale_y_continuous(limits = c(-.1, .1)) +
+  theme(
+    axis.title.y = element_blank(),
+    axis.title.x = element_blank(),
+    axis.text.y = element_text(hjust = 0),
+    legend.position = "none"
+  ) +
+  facet_grid("n_t_char ~ transition") 
+
+# Plot standard error estimates
+# Across zeta
+d %>%
+  #filter(n_t == state_lengths[sl]) %>%
+  mutate(nsubj = factor(paste0(n, "_", Q)),
+         median = (median-true_val),
+         # Need this to label
+         n_t_char = factor(paste0("occasions = ", as.character(n_t)),
+                           levels = c("occasions = 400", "occasions = 800",
+                                      "occasions = 1600"))) %>%
+  #filter(Q == 0.4) %>%
+  ggplot(aes(x=nsubj, y=SE)) +
+  geom_hline(yintercept = 0.1, color = "lightgrey") +
+  geom_hline(yintercept = 0.2, color = "lightgrey") +
+  geom_hline(yintercept = 0.3, color = "lightgrey") +
+  geom_hline(yintercept = 0.6, color = "lightgrey") +
+  geom_jitter(alpha=0.1) +
+  coord_flip() +
+  theme_thesis(text_size = 6, center_title = TRUE) +
+  scale_y_continuous(limits = c(0, 0.1)) +
+  theme(
+    axis.title.y = element_blank(),
+    axis.title.x = element_blank(),
+    axis.text.y = element_text(hjust = 0),
+    legend.position = "none"
+  ) +
+  facet_grid("n_t_char ~ transition") 
