@@ -1,8 +1,8 @@
 # sleepsimR-documentation
 
-[![DOI](https://zenodo.org/badge/263343539.svg)](https://zenodo.org/badge/latestdoi/263343539) ![lifecycle](https://img.shields.io/badge/lifecycle-under%20construction-red.svg) ![access](https://img.shields.io/badge/access-open%20access-green.svg) ![license](https://img.shields.io/badge/license-MIT-blue.svg)
+[![DOI](https://zenodo.org/badge/263343539.svg)](https://zenodo.org/badge/latestdoi/263343539) ![lifecycle](https://img.shields.io/badge/lifecycle-archived-lightgrey.svg)] ![access](https://img.shields.io/badge/access-open%20access-green.svg) ![license](https://img.shields.io/badge/license-MIT-blue.svg)
 
-<!-- ![lifecycle](https://img.shields.io/badge/lifecycle-archived-lightgrey.svg)] -->
+<!-- ![lifecycle](https://img.shields.io/badge/lifecycle-under%20construction-red.svg)-->
 
 This repository contains the research archive accompanying my Master's thesis. 
 
