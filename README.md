@@ -289,15 +289,15 @@ To run the simulations, I use the [LISA](https://userinfo.surfsara.nl/systems/li
 
 First, you need to set up a virtual machine on Google Cloud (or a cloud service provider of your choice). This virtual machine can be quite small; 2 vCPUs and 4GB of RAM should suffice. Make sure to use Ubuntu 18.04 as your operating system and assign an SSD hard drive of at least 30GB. Next, ensure that the virtual machine is publically reachable on port 80. This allows the API to communicate with each of the simulation iteration containers. 
 
-View the instructions to set up the sleepsimR-api program [here]().
+View the instructions to set up the sleepsimR-api program [here](https://github.com/JasperHG90/sleepsimR-documentation/blob/master/pipeline/2_simulation_design_and_execution/API-google-cloud/README.md).
 
 ##### 3.2.4 Running the simulation iterations on the LISA HPC
 
 The [LISA system](https://userinfo.surfsara.nl/systems/lisa) uses Slurm to manage jobs executed by users. Given that docker requires root access, we cannot use it with this cluster. Instead, we can use singularity.
 
-Instructions on creating a Singularity image from a local docker file can be found [here]().
+Instructions on creating a Singularity image from a local docker file can be found [here](https://github.com/JasperHG90/sleepsimR-documentation/blob/master/pipeline/2_simulation_design_and_execution/run-simulations-surf-lisa/create_singularity_image.md).
 
-Instructions on preparing the jobscript used to execute the simulations can be found [here]().
+Instructions on preparing the jobscript used to execute the simulations can be found [here](https://github.com/JasperHG90/sleepsimR-documentation/blob/master/pipeline/2_simulation_design_and_execution/run-simulations-surf-lisa/create_slurm_batch_job.md).
 
 Please refer to the official [LISA documentation](https://userinfo.surfsara.nl/systems/lisa/user-guide/creating-and-running-jobs) on how to execute jobs using slurm.
 
@@ -332,8 +332,6 @@ sim_results <- simulation_data_emiss_means$summary_by_scenario # Simulation resu
 ?sleepsimRdata::simulation_data_emiss_varmu
 ?sleepsimRdata::simulation_data_gamma_prob
 ```
-
-The results obtained in my study have been included in the "sleepsimRdata" R library. You can find the ...
 
 #### 3.3 Analysis & empirical application
 
