@@ -333,7 +333,7 @@ sim_results <- simulation_data_emiss_means$summary_by_scenario # Simulation resu
 
 #### 3.3 Analysis & empirical application
 
-##### 3.3.1 Analysis of results: model convergence
+##### 3.3.1 Analysis of simulation results: model convergence
 
 To assess model convergence, I created a small shiny application that you can find under "pipeline/3_analysis_and_empirical_application/shiny-app-model-convergence". To use this shiny application, install the following prerequisites in your R environment:
 
@@ -345,7 +345,13 @@ Then, put the stored results of the first model chain under "data/simulations". 
 
 Open the 'sleepsimR-convergence.Rproj' R project and click on "run app". The results of the analysis will be stored in a root file called "history.rds".
 
-##### 3.3.1 Running the models used in the empirical application
+The results of my analysis are included in the above folder.
+
+##### 3.3.2 Analysis of simulation results: assessment and figures
+
+The main analysis of the simulation results can be found in the folder "pipeline/3_analysis_and_empirical_application/analysis-simulation-results".
+
+##### 3.3.1 Empirical Application: Running the mHMM models
 
 You can replicate my results for the empirical analysis by using the "sleepsimR-sleepdata-analysis" docker program. I **strongly** suggest that you run this model on a cloud VM. Running the mHMM with 20.000 iterations will flood your RAM because, in the limit, the memory footprint is determined by (number of subjects X number of occasions X number of outcome variables X number of component distributions X number of MCMC iterations). Also be aware that running these models will take +- 20 hours each on a reasonably fast machine.
 
@@ -371,14 +377,14 @@ Run the first chain of the model using the following line of code:
 
 ```shell
 # Run the docker container
-docker run --rm --mount source=sleepsimr_analysis,target=/var/sleepsimr_sleepdata_analysis jhginn/sleepsimr-sleepdata-analysis 20000 10000 --variables EEG_Fpz_Cz_mean_theta EOG_min_beta EOG_median_theta --seed 332245
+docker run --rm --mount source=sleepsimr_analysis,target=/var/sleepsimr_sleepdata_analysis jhginn/sleepsimr-sleepdata-analysis:version-0.5 20000 10000 --variables EEG_Fpz_Cz_mean_theta EOG_min_beta EOG_median_theta --seed 332245
 ```
 
 Run the second chain using the following line of code:
 
 ```shell
 # Run the docker container
-docker run --rm --mount source=sleepsimr_analysis,target=/var/sleepsimr_sleepdata_analysis jhginn/sleepsimr-sleepdata-analysis 20000 10000 --variables EEG_Fpz_Cz_mean_theta EOG_min_beta EOG_median_theta --seed 332246
+docker run --rm --mount source=sleepsimr_analysis,target=/var/sleepsimr_sleepdata_analysis jhginn/sleepsimr-sleepdata-analysis:version-0.5 20000 10000 --variables EEG_Fpz_Cz_mean_theta EOG_min_beta EOG_median_theta --seed 332246
 ```
 
 Next, copy the models from the docker volume to the host device:
@@ -391,13 +397,9 @@ docker cp helper:/var/sleepsimR models_empirical_application
 docker stop helper && docker rm helper
 ```
 
-##### 3.3.2 Analysis of the empirical application
+##### 3.3.2 Empirical Application: Analysis
 
-
-
-##### 3.3.1 Analyses and Figures
-
-##### 3.3.2 Empirical application
+The analysis of the empirical application can be found in the folder "pipeline/3_analysis_and_empirical_application/sleep-data-analysis".
 
 ## B. Privacy
 
