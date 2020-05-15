@@ -424,7 +424,7 @@ The analysis of the empirical application can be found in the folder "pipeline/3
 
 ## B. Privacy
 
-I affirm to have followed professional ethical guidelines in preparing this work. The procedures in this research project were reviewed and granted approval by the Ethics Review Board of the Faculty of Social and Behavioural Sciences at Utrecht University under reference number #19-196. A PDF of the original application may be found in the "documentation" folder. No new data was collected, and only publically available data was used in this study.
+I affirm to have followed professional ethical guidelines in preparing this work. The procedures in this research project were reviewed and granted approval by the Ethics Review Board of the Faculty of Social and Behavioural Sciences at Utrecht University under reference number #19-196. A PDF of the original application may be found in the "documentation" folder. No new data was collected, and only publicly available data was used in this study.
 
 ## C. Permission and access
 
